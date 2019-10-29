@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="robots" content="index,follow">
 
     <meta property="og:site_name" content="$station.location | Weather">
@@ -51,84 +51,88 @@
         #else
         #set $sun_None="(Always up)"
         #end if
-        <table class="unstyled almanac">
-            <tr>
-                <td><i class="wi wi-sunrise"></i></td>
-                <td>$almanac.sun.rise.string($sun_None)</td>
-                <td><i class="wi wi-moonrise"></i></td>
-                <td>$almanac.moon.rise</td>
-            </tr>
-            <tr>
-                <td><i class="wi wi-sunset"></i></td>
-                <td>$almanac.sun.set.string($sun_None)</td>
-                <td><i class="wi wi-moonset"></i></td>
-                <td>$almanac.moon.set</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><a data-fancybox data-src="#almanac" href="javascript:;" class="btn" role="button">
-                    $Extras.Translation.more_button
-                </a></td>
-                <td>
-                    #if $almanac.moon_phase == "New"
-                    <i class="wi wi-moon-new"></i>
-                    #else if $almanac.moon_phase == "Waxing crescent"
-                    <i class="wi wi-moon-waxing-crescent-4"></i>
-                    #else if $almanac.moon_phase == "First quarter"
-                    <i class="wi wi-moon-first-quarter"></i>
-                    #else if $almanac.moon_phase == "Waxing gibbous"
-                    <i class="wi wi-moon-waxing-gibbous-4"></i>
-                    #else if $almanac.moon_phase == "Full"
-                    <i class="wi wi-moon-full"></i>
-                    #else if $almanac.moon_phase == "Waning gibbous"
-                    <i class="wi wi-moon-waning-gibbous-4"></i>
-                    #else if $almanac.moon_phase == "Last quarter"
-                    <i class="wi wi-moon-third-quarter"></i>
-                    #else if $almanac.moon_phase == "Waning crescent"
-                    <i class="wi wi-moon-waning-crescent-4"></i>
-                    #else
-                    <i class="wi wi-moon-waning-crescent-3"></i>
-                    #end if
-                </td>
-                <td>$almanac.moon_fullness% $Extras.Translation.moon_full</td>
-            </tr>
-        </table>
+        <div>
+            <table class="unstyled almanac">
+                <tr>
+                    <td><i class="wi wi-sunrise"></i></td>
+                    <td>$almanac.sun.rise.string($sun_None)</td>
+                    <td><i class="wi wi-moonrise"></i></td>
+                    <td>$almanac.moon.rise</td>
+                </tr>
+                <tr>
+                    <td><i class="wi wi-sunset"></i></td>
+                    <td>$almanac.sun.set.string($sun_None)</td>
+                    <td><i class="wi wi-moonset"></i></td>
+                    <td>$almanac.moon.set</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><a data-fancybox data-src="#almanac" href="javascript:;" class="btn" role="button">
+                        $Extras.Translation.more_button
+                    </a></td>
+                    <td>
+                        #if $almanac.moon_phase == "New"
+                        <i class="wi wi-moon-new"></i>
+                        #else if $almanac.moon_phase == "Waxing crescent"
+                        <i class="wi wi-moon-waxing-crescent-4"></i>
+                        #else if $almanac.moon_phase == "First quarter"
+                        <i class="wi wi-moon-first-quarter"></i>
+                        #else if $almanac.moon_phase == "Waxing gibbous"
+                        <i class="wi wi-moon-waxing-gibbous-4"></i>
+                        #else if $almanac.moon_phase == "Full"
+                        <i class="wi wi-moon-full"></i>
+                        #else if $almanac.moon_phase == "Waning gibbous"
+                        <i class="wi wi-moon-waning-gibbous-4"></i>
+                        #else if $almanac.moon_phase == "Last quarter"
+                        <i class="wi wi-moon-third-quarter"></i>
+                        #else if $almanac.moon_phase == "Waning crescent"
+                        <i class="wi wi-moon-waning-crescent-4"></i>
+                        #else
+                        <i class="wi wi-moon-waning-crescent-3"></i>
+                        #end if
+                    </td>
+                    <td>$almanac.moon_fullness% $Extras.Translation.moon_full</td>
+                </tr>
+            </table>
+        </div>
         #else
         ## No extended almanac information available. Fall back to a simple table.
-        <table class="unstyled almanac">
-            <tr>
-                <td><i class="wi wi-sunrise"></i></td>
-                <td>$almanac.sunrise</td>
-                <td><i class="wi wi-sunset"></i></td>
-                <td>$almanac.sunset</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>
-                    #if $almanac.moon_phase == "New"
-                    <i class="wi wi-moon-new"></i>
-                    #else if $almanac.moon_phase == "Waxing crescent"
-                    <i class="wi wi-moon-waxing-crescent-4"></i>
-                    #else if $almanac.moon_phase == "First quarter"
-                    <i class="wi wi-moon-first-quarter"></i>
-                    #else if $almanac.moon_phase == "Waxing gibbous"
-                    <i class="wi wi-moon-waxing-gibbous-4"></i>
-                    #else if $almanac.moon_phase == "Full"
-                    <i class="wi wi-moon-full"></i>
-                    #else if $almanac.moon_phase == "Waning gibbous"
-                    <i class="wi wi-moon-waning-gibbous-4"></i>
-                    #else if $almanac.moon_phase == "Last quarter"
-                    <i class="wi wi-moon-third-quarter"></i>
-                    #else if $almanac.moon_phase == "Waning crescent"
-                    <i class="wi wi-moon-waning-crescent-4"></i>
-                    #else
-                    <i class="wi wi-moon-waning-crescent-3"></i>
-                    #end if
-                </td>
-                <td>$almanac.moon_fullness% $Extras.Translation.moon_full</td>
-            </tr>
-        </table>
+        <div>
+            <table class="unstyled almanac">
+                <tr>
+                    <td><i class="wi wi-sunrise"></i></td>
+                    <td>$almanac.sunrise</td>
+                    <td><i class="wi wi-sunset"></i></td>
+                    <td>$almanac.sunset</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        #if $almanac.moon_phase == "New"
+                        <i class="wi wi-moon-new"></i>
+                        #else if $almanac.moon_phase == "Waxing crescent"
+                        <i class="wi wi-moon-waxing-crescent-4"></i>
+                        #else if $almanac.moon_phase == "First quarter"
+                        <i class="wi wi-moon-first-quarter"></i>
+                        #else if $almanac.moon_phase == "Waxing gibbous"
+                        <i class="wi wi-moon-waxing-gibbous-4"></i>
+                        #else if $almanac.moon_phase == "Full"
+                        <i class="wi wi-moon-full"></i>
+                        #else if $almanac.moon_phase == "Waning gibbous"
+                        <i class="wi wi-moon-waning-gibbous-4"></i>
+                        #else if $almanac.moon_phase == "Last quarter"
+                        <i class="wi wi-moon-third-quarter"></i>
+                        #else if $almanac.moon_phase == "Waning crescent"
+                        <i class="wi wi-moon-waning-crescent-4"></i>
+                        #else
+                        <i class="wi wi-moon-waning-crescent-3"></i>
+                        #end if
+                    </td>
+                    <td>$almanac.moon_fullness% $Extras.Translation.moon_full</td>
+                </tr>
+            </table>
+        </div>
         #end if
 
     </div>
@@ -176,26 +180,6 @@
                         </div>
 
                     </div>
-                    <!--div class="col col-4 crd">
-
-                        <h4><i class="wi wi-humidity"></i> $Extras.Translation.out_humidity</h4>
-                        <div class="crd-content">
-                            <span class="weatherdata">$current.outHumidity</span>
-                            <table class="meta">
-                                <tr>
-                                    <td>$Extras.Translation.high:</td>
-                                    <td>$day.outHumidity.max</td>
-                                    <td>($day.outHumidity.maxtime.format("%H:%M"))</td>
-                                </tr>
-                                <tr>
-                                    <td>$Extras.Translation.low:</td>
-                                    <td>$day.outHumidity.min</td>
-                                    <td>($day.outHumidity.mintime.format("%H:%M"))</td>
-                                </tr>
-                            </table>
-                        </div>
-
-                    </div-->
                     <div class="col col-4 crd">
 
                         <h4><i class="wi wi-barometer"></i> $Extras.Translation.barometer</h4>
@@ -333,67 +317,6 @@
 
             </div>
         </div>
-
-        <!--div class="row gutters row-gutters">
-            <div class="col col-3 crd">
-
-                <h4><i class="wi wi-thermometer-exterior"></i> $Extras.Translation.dewpoint</h4>
-                <div class="crd-content">
-                    <span class="weatherdata">$current.dewpoint</span>
-                    <table class="meta">
-                        <tr>
-                            <td>$Extras.Translation.high:</td>
-                            <td>$day.dewpoint.max</td>
-                            <td>($day.dewpoint.maxtime.format("%H:%M"))</td>
-                        </tr>
-                        <tr>
-                            <td>$Extras.Translation.low:</td>
-                            <td>$day.dewpoint.min</td>
-                            <td>($day.dewpoint.mintime.format("%H:%M"))</td>
-                        </tr>
-                    </table>
-                </div>
-
-            </div>
-            <div class="col col-3 crd">
-
-                <h4><i class="wi wi-fire"></i> $Extras.Translation.heat_index</h4>
-                <div class="crd-content">
-                    <span class="weatherdata">$current.heatindex</span>
-                    <table class="meta">
-                        <tr>
-                            <td>$Extras.Translation.high:</td>
-                            <td>$day.heatindex.max</td>
-                            <td>($day.heatindex.maxtime.format("%H:%M"))</td>
-                        </tr>
-                    </table>
-                </div>
-
-            </div>
-            #if $day.UV.has_data
-            <div class="col col-3 crd">
-
-                <h4><i class="wi wi-fire"></i> $Extras.Translation.uv</h4>
-                <div class="crd-content">
-                    <span class="weatherdata">$current.UV</span>
-                    <table class="meta">
-                        <tr>
-                            <td>$Extras.Translation.high:</td>
-                            <td>$day.UV.max</td>
-                            <td>($day.UV.maxtime.format("%H:%M"))</td>
-                        </tr>
-                        <tr>
-                            <td>$Extras.Translation.low:</td>
-                            <td>$day.UV.min</td>
-                            <td>($day.UV.mintime.format("%H:%M"))</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            #else
-            <div class="col col-3"></div>
-            #end if
-        </div-->
 
         <!-- GRAPHS -->
 

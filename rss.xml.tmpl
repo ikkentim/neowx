@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 ## $Id: weewx_rss.xml.tmpl 2749 2014-11-29 18:15:24Z tkeffer $
 <rss version="2.0" 
-     xmlns:content="http://purl.org/rss/1.0/modules/content/"
-     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" >
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
    <channel>
       <title>$station.location, Weather Conditions</title>
       <link>$station.station_url</link>
@@ -26,8 +25,6 @@
            Inside temperature: $current.inTemp
          </description>
          <pubDate>$current.dateTime.format("%a, %d %b %Y %H:%M:%S %Z")</pubDate>
-	     <geo:lat>$station.latitude_f</geo:lat>
-    	 <geo:long>$station.longitude_f</geo:long>
  		 <content:encoded><![CDATA[
            <p>
              Time:                $current.dateTime<br/>
@@ -58,8 +55,6 @@
             Rain today:              $day.rain.sum
          </description>
          <pubDate>$current.dateTime.format("%a, %d %b %Y %H:%M:%S %Z")</pubDate>
-	     <geo:lat>$station.latitude_f</geo:lat>
-    	 <geo:long>$station.longitude_f</geo:long>
  		 <content:encoded><![CDATA[
            <p>
              Day:                     $day.dateTime.format("%d %b %Y")<br/>
